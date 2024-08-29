@@ -24,7 +24,7 @@ const authRouter = require("./routes/auth.js");
 const doctorRouter = require("./routes/doctor.js");
 const counsellorRouter = require("./routes/counsellor.js");
 
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"];
+const allowedOrigins = ["https://unicare-admin.vercel.app", "http://localhost:5174"];
 
 app.use(
   cors({
