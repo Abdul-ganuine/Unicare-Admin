@@ -15,7 +15,7 @@ function ProtectedRoute({ children }) {
       dispath(showLoading());
       const response = await axios.post(
         "http://localhost:3000/api/auth/getDataByID",
-        { token: localStorage.getItem("userId") },
+        { userId: localStorage.getItem("userId") },
         {
           withCredentials: true,
         }
@@ -41,12 +41,12 @@ function ProtectedRoute({ children }) {
   }, [user]);
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
+    if (!localStorage.getItem("userId")) {
       navigate("/login");
     }
   }, [navigate]);
 
-  if (localStorage.getItem("token")) {
+  if (localStorage.getItem("userId")) {
     return <div>{children}</div>;
   }
 
