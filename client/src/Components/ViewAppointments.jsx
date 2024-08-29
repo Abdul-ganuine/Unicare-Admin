@@ -15,8 +15,9 @@ function ViewAppointments() {
   const getAppointments = async () => {
     try {
       dispatch(showLoading());
-      const res = await axios.get(
+      const res = await axios.post(
         "http://localhost:3000/panel/getAppointmentsByDoctorId",
+        { userId: localStorage.getItem("userId") },
         {
           withCredentials: true,
         }
