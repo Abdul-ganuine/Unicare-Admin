@@ -15,7 +15,7 @@ function ProtectedRoute({ children }) {
       dispath(showLoading());
       const response = await axios.post(
         "http://localhost:3000/api/auth/getDataByID",
-        { token: localStorage.getItem("token") },
+        { token: localStorage.getItem("userId") },
         {
           withCredentials: true,
         }

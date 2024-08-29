@@ -24,7 +24,6 @@ function Login() {
         dispatch(hideLoading());
         if (res.data.status) {
           toast.success(res.data.message);
-          localStorage.setItem("token", res.data.data);
           localStorage.setItem("userId", res.data.userId);
           navigate("/panel");
         } else {
