@@ -1,0 +1,22 @@
+.chat {
+  display: flex;
+  width: 86%;
+  margin: 0 auto;
+  height: 89vh;
+  background-color: #f2f2f2;
+}
+
+.date-header {
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .chat {
+    max-width: unset;
+    height: 100vh;
+  }
+}
