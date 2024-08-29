@@ -33,7 +33,7 @@ const upload = multer({
 router.route("/registerUser").post(upload.single("picture"), registerUser);
 router.route("/login").post(login);
 router.route("/reset-password").post(forgotPassword);
-router.route("/getDataByID").post(middleware, getUserInfoById);
+router.route("/getDataByID").post(getUserInfoById);
 router
   .route("/mark-all-notifications-as-seen")
   .post(markAllNotificationsAsSeen);

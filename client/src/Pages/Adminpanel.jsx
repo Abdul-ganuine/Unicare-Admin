@@ -13,6 +13,7 @@ function Adminpanel() {
   const [userName, setUserName] = useState(null);
   const [numOfUnSeenNotification, setNumOfUnseenNotification] = useState(null);
   const { user } = useSelector((state) => state.user);
+  const userId = localStorage.getItem("userId");
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -20,7 +21,7 @@ function Adminpanel() {
     try {
       await axios.post(
         "http://localhost:3000/api/auth/getDataByID",
-        {},
+        {userId},
         {
           withCredentials: true,
         }
