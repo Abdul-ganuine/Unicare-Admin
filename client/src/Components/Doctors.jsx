@@ -17,7 +17,7 @@ function Doctors() {
     if (confrim) {
       dispatch(showLoading());
       axios
-        .delete("http://localhost:3000/panel/deleteDoctor/" + id)
+        .delete(`http://localhost:3000/panel/deleteDoctor/${id}`)
         .then((response) => {
           if (response.status === 200) {
             dispatch(hideLoading());
