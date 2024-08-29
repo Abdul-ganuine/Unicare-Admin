@@ -11,13 +11,14 @@ import moment from "moment";
 function ViewAppointments() {
   const [appointments, setAppointments] = useState([]);
   const dispatch = useDispatch();
-
+  const userId = localStorage.getItem("userId")
+  console.log(userId)
   const getAppointments = async () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
         "http://localhost:3000/panel/getAppointmentsByDoctorId",
-        { userId: localStorage.getItem("userId") },
+        { userId },
         {
           withCredentials: true,
         }
