@@ -179,9 +179,9 @@ const forgotPassword = async (req, res) => {
 };
 
 const getUserInfoById = async (req, res) => {
-  console.log(req.user);
+  const {userId} = req.body
   try {
-    const user = await User.findOne({ _id: req.user.id });
+    const user = await User.findOne({ _id: userId });
     if (!user) {
       return res
         .status(200)
@@ -196,6 +196,7 @@ const getUserInfoById = async (req, res) => {
           unSeenNotifications: user.unSeenNotifications,
           seenNotifications: user.seenNotifications,
           id: user._id,
+          img: user.img
         },
       });
     }
