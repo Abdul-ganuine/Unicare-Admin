@@ -4,6 +4,7 @@ import "./Doctors.css";
 import DataTable from "react-data-table-component";
 import { useDispatch } from "react-redux";
 import { hideLoading, showLoading } from "../redux/alertSlice";
+import { toast } from "react-toastify";
 
 function Counsellors() {
   const [data, setData] = useState([]);
@@ -30,7 +31,7 @@ function Counsellors() {
           console.error("Error deleting doctor:", error);
           dispatch(hideLoading());
           toast.error(
-            "An error occurred while deleting the doctor. Please try again."
+            "An error occurred while deleting the counsellor. Please try again."
           );
         });
     }
