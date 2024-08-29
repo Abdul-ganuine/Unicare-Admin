@@ -10,22 +10,29 @@ function Counsellors() {
   const dispatch = useDispatch();
 
   function handleDelete(id) {
-    const confrim = window.confirm(
+    const confirm = window.confirm(
       "Are you sure you want to permanently delete this record?"
     );
-    if (confrim) {
+    if (confirm) {
       dispatch(showLoading());
       axios
-        .delete("http://localhost:3000/panel/deleteCounsellor/" + id)
+        .post(`http://localhost:3000/panel/deleteCounsellor`, { id })
         .then((response) => {
-          dispatch(hideLoading());
           if (response.status === 200) {
+            dispatch(hideLoading());
             setData((prevDoctors) =>
               prevDoctors.filter((doctor) => doctor._id !== id)
             );
+            toast.success("Counsellor successfully deleted.");
           }
         })
-        .catch((error) => console.error("Error deleting doctor:", error));
+        .catch((error) => {
+          console.error("Error deleting doctor:", error);
+          dispatch(hideLoading());
+          toast.error(
+            "An error occurred while deleting the doctor. Please try again."
+          );
+        });
     }
   }
 
